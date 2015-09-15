@@ -15,12 +15,12 @@ class Foo {
     var wordB : String!
     
     init (words: [String?]) {
-        wordA = words[0]?
-        wordB = words[1]?
+        wordA = words[0]
+        wordB = words[1]
     }
     
 //: [EXPLAIN YOUR ANSWER TO Q1 HERE]
-    
+//In the class Foo, wordA and wordB are defined as String Strict. Hence in the init, wordA and wordB can't be assigned as String optional. 
 
     
 //: ## Q2: Variable Types and Function Types
@@ -28,28 +28,31 @@ class Foo {
     
     func arePalindromes(words: [String]) -> Bool! {
         let reversedWords = words.map() {String($0.characters.reverse())}
-        var numElements = words.count
+        let numElements = words.count
         
-        for let i = 0; i < numElements; i++ {
+        for var i = 0; i < numElements; i++ {
             if words[i] != reversedWords[i] {
                 return false
             }
         }
         
+        
         return nil
     }
     
 //: [EXPLAIN YOUR ANSWER TO Q2 HERE]
-    
+    //let is used to define constant instead of variable. Here i needs to be incremented so there is error. Change let to var would make it work.
+    //We should return a boolean value either true or false to test if the input word is a palindrome.
     
     
 //: ## Q3: More functions, and object initialization
 //: The method should be returning true or false -- what's wrong?
 //: Are we initializing the dictionary correctly?
-    func isAnagram(wordA: String, wordB: String) -> Bool? {
-        var countLetters : [Character : Int]
-        var lenA = wordA.characters.count
-        var lenB = wordB.characters.count
+    func isAnagram(wordA: String, wordB: String) -> Bool! {
+        //var countLetters : [Character : Int]
+        var countLetters = [Character : Int]()
+        let lenA = wordA.characters.count
+        let lenB = wordB.characters.count
         
         if lenA != lenB {
             return false
@@ -86,6 +89,8 @@ class Foo {
 }
 
 //: [EXPLAIN YOUR ANSWER TO Q3 HERE]
+//The return value should be bool! instead of bool? since it's either True or False
+//The dictionary was not initialized correctly, the correct version should be var countLetters = [Character:Int]() as above.
 
 
 //: **Do not** change anything below.
