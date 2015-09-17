@@ -21,6 +21,7 @@ class Foo {
     
 //: [EXPLAIN YOUR ANSWER TO Q1 HERE]
 //In the class Foo, wordA and wordB are defined as String Strict. Hence in the init, wordA and wordB can't be assigned as String optional. 
+//We fix this by unwrap the words[0] and words[1] inside init
 
     
 //: ## Q2: Variable Types and Function Types
