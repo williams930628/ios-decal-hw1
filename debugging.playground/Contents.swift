@@ -11,12 +11,12 @@ import UIKit
 
 class Foo {
     
-    var wordA : String!
-    var wordB : String!
+    var wordA : String
+    var wordB : String
     
     init (words: [String?]) {
-        wordA = words[0]
-        wordB = words[1]
+        wordA = words[0]!
+        wordB = words[1]!
     }
     
 //: [EXPLAIN YOUR ANSWER TO Q1 HERE]
@@ -26,7 +26,7 @@ class Foo {
 //: ## Q2: Variable Types and Function Types
 //: Why does the compiler dislike the for loop? Also, what should we return?
     
-    func arePalindromes(words: [String]) -> Bool! {
+    class func arePalindromes(words: [String]) -> Bool! {
         let reversedWords = words.map() {String($0.characters.reverse())}
         let numElements = words.count
         
@@ -37,7 +37,7 @@ class Foo {
         }
         
         
-        return nil
+        return true
     }
     
 //: [EXPLAIN YOUR ANSWER TO Q2 HERE]
@@ -48,7 +48,7 @@ class Foo {
 //: ## Q3: More functions, and object initialization
 //: The method should be returning true or false -- what's wrong?
 //: Are we initializing the dictionary correctly?
-    func isAnagram(wordA: String, wordB: String) -> Bool! {
+    class func isAnagram(wordA: String, wordB: String) -> Bool! {
         //var countLetters : [Character : Int]
         var countLetters = [Character : Int]()
         let lenA = wordA.characters.count
@@ -84,7 +84,7 @@ class Foo {
             }
         }
         
-        return nil
+        return true
     }
 }
 
